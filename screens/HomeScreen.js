@@ -28,7 +28,8 @@ HomeScreen.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'aliceblue' // Hex code or HTML 5 colors
+    backgroundColor: 'aliceblue', // Hex code or HTML 5 colors
+    paddingTop: 50
   },
   textInput: {
     height: 40,
