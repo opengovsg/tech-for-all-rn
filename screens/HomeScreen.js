@@ -1,13 +1,21 @@
 import React from 'react'
 import {
   View,
-  StyleSheet
+  StyleSheet,
+  TextInput
 } from 'react-native'
 
+const LOCATION_PLACEHOLDER_TEXT = 'Enter your location'
+
 export default function HomeScreen() {
+  const [ locationInput, setLocationInput ] = React.useState('')
   return (
     <View style={styles.container}>
-
+      <TextInput
+        placeholder={ LOCATION_PLACEHOLDER_TEXT }
+        onChangeText={ text => setLocationInput(text) }
+        value={ locationInput }
+      />
     </View>
   )
 }
