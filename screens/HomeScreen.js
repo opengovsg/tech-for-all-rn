@@ -4,8 +4,11 @@ import {
   StyleSheet,
   TextInput
 } from 'react-native'
+import { getCarparkDataByLocation } from '../services'
 
 const LOCATION_PLACEHOLDER_TEXT = 'Enter your location'
+
+getCarparkDataByLocation('Funan')
 
 export default function HomeScreen() {
   const [ locationInput, setLocationInput ] = React.useState('')
