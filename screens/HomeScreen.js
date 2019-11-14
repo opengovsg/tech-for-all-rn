@@ -16,6 +16,7 @@ export default function HomeScreen() {
         onChangeText={ text => setLocationInput(text) }
         style={ styles.textInput }
         value={ locationInput }
+        onSubmitEditing={ () => console.log(locationInput) }
       />
     </View>
   )
