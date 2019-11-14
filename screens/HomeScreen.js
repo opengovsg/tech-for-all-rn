@@ -14,6 +14,7 @@ export default function HomeScreen() {
       <TextInput
         placeholder={ LOCATION_PLACEHOLDER_TEXT }
         onChangeText={ text => setLocationInput(text) }
+        style={ styles.textInput }
         value={ locationInput }
       />
     </View>
@@ -28,5 +29,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'aliceblue' // Hex code or HTML 5 colors
+  },
+  textInput: {
+    height: 40,
+    backgroundColor: 'white',
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginHorizontal: 20,
+    borderRadius: 5,
+    paddingHorizontal: 5
   }
 })
