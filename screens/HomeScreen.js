@@ -30,6 +30,7 @@ export default function HomeScreen() {
       <MapView
         style={ styles.mapStyle }
         initialRegion={ SINGAPORE_REGION }
+        showsUserLocation={ true }
       />
     </View>
   )
