@@ -31,7 +31,14 @@ export default function HomeScreen() {
         style={ styles.mapStyle }
         initialRegion={ SINGAPORE_REGION }
         showsUserLocation={ true }
-      />
+      >
+        <MapView.Marker
+          coordinate={{
+            latitude: SINGAPORE_REGION.latitude,
+            longitude: SINGAPORE_REGION.longitude
+          }}
+        />
+      </MapView>
     </View>
   )
 }
