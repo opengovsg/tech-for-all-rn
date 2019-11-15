@@ -8,8 +8,6 @@ import { getCarparkDataByLocation } from '../services'
 
 const LOCATION_PLACEHOLDER_TEXT = 'Enter your location'
 
-getCarparkDataByLocation('Funan')
-
 export default function HomeScreen() {
   const [ locationInput, setLocationInput ] = React.useState('')
   return (
@@ -19,7 +17,7 @@ export default function HomeScreen() {
         onChangeText={ text => setLocationInput(text) }
         style={ styles.textInput }
         value={ locationInput }
-        onSubmitEditing={ () => console.log(locationInput) }
+        onSubmitEditing={ () => getCarparkDataByLocation(locationInput).then((data) => console.log('got carparkdata', data)) }
       />
     </View>
   )
