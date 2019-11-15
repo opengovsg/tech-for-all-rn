@@ -29,10 +29,14 @@ export default function HomeScreen() {
         value={ locationInput }
         onSubmitEditing={ () => getCarparkDataByLocation(locationInput).then((data) => setCarparkData(data)) }
       />
-      <Text>
+      <Text
+        style={ styles.textStyle }
+      >
         Address: { carparkData && <Text> { carparkData.address } </Text> }
       </Text>
-      <Text>
+      <Text
+        style={ styles.textStyle }
+      >
         Lots Available: { carparkData && <Text> { carparkData.lots_available } </Text> }
       </Text>
       <MapView
@@ -72,6 +76,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     borderRadius: 5,
     paddingHorizontal: 5
+  },
+  textStyle: {
+    marginHorizontal: 20,
+    marginTop: 5
   },
   mapStyle: {
     height: Dimensions.get('window').height * 0.65,
