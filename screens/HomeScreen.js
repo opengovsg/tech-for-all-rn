@@ -9,6 +9,12 @@ import { getCarparkDataByLocation } from '../services'
 import MapView from 'react-native-maps'
 
 const LOCATION_PLACEHOLDER_TEXT = 'Enter your location'
+const SINGAPORE_REGION = {
+  latitude: 1.3594206,   // Lat lon defines the central point
+  longitude: 103.8066663,
+  latitudeDelta: 0.5,   // Deltas define the zoom box
+  longitudeDelta: 0.3
+}
 
 export default function HomeScreen() {
   const [ locationInput, setLocationInput ] = React.useState('')
@@ -21,7 +27,10 @@ export default function HomeScreen() {
         value={ locationInput }
         onSubmitEditing={ () => getCarparkDataByLocation(locationInput).then((data) => console.log('got carparkdata', data)) }
       />
-      <MapView style={ styles.mapStyle }/>
+      <MapView
+        style={ styles.mapStyle }
+        initialRegion={ SINGAPORE_REGION }
+      />
     </View>
   )
 }
