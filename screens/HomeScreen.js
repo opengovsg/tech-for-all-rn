@@ -2,16 +2,18 @@ import React from 'react'
 import {
   View,
   StyleSheet,
-  TextInput
+  TextInput,
+  Dimensions
 } from 'react-native'
 import { getCarparkDataByLocation } from '../services'
+import MapView from 'react-native-maps'
 
 const LOCATION_PLACEHOLDER_TEXT = 'Enter your location'
 
 export default function HomeScreen() {
   const [ locationInput, setLocationInput ] = React.useState('')
   return (
-    <View style={styles.container}>
+    <View style={ styles.container }>
       <TextInput
         placeholder={ LOCATION_PLACEHOLDER_TEXT }
         onChangeText={ text => setLocationInput(text) }
@@ -19,6 +21,7 @@ export default function HomeScreen() {
         value={ locationInput }
         onSubmitEditing={ () => getCarparkDataByLocation(locationInput).then((data) => console.log('got carparkdata', data)) }
       />
+      <MapView style={ styles.mapStyle }/>
     </View>
   )
 }
@@ -41,5 +44,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     borderRadius: 5,
     paddingHorizontal: 5
+  },
+  mapStyle: {
+    height: Dimensions.get('window').height * 0.7,
+    borderRadius: 5,
+    marginTop: 'auto',
+    alignSelf: 'stretch'
   }
 })
