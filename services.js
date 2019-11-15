@@ -7,5 +7,5 @@ export async function getCarparkDataByLocation (location) {
     location
   }
   const res = await axios.get(URL, { params })
-  console.log(res.data)
+  return res.data
 }
