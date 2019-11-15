@@ -18,6 +18,7 @@ const SINGAPORE_REGION = {
 
 export default function HomeScreen() {
   const [ locationInput, setLocationInput ] = React.useState('')
+  const [ carparkData, setCarparkData ] = React.useState(null)
   return (
     <View style={ styles.container }>
       <TextInput
@@ -25,19 +26,22 @@ export default function HomeScreen() {
         onChangeText={ text => setLocationInput(text) }
         style={ styles.textInput }
         value={ locationInput }
-        onSubmitEditing={ () => getCarparkDataByLocation(locationInput).then((data) => console.log('got carparkdata', data)) }
+        onSubmitEditing={ () => getCarparkDataByLocation(locationInput).then((data) => setCarparkData(data)) }
       />
       <MapView
         style={ styles.mapStyle }
         initialRegion={ SINGAPORE_REGION }
         showsUserLocation={ true }
       >
-        <MapView.Marker
-          coordinate={{
-            latitude: SINGAPORE_REGION.latitude,
-            longitude: SINGAPORE_REGION.longitude
-          }}
-        />
+        {
+          carparkData &&
+            <MapView.Marker
+              coordinate={{
+                latitude: carparkData.latitude,
+                longitude: carparkData.longitude
+              }}
+            />
+        }
       </MapView>
     </View>
   )
