@@ -3,7 +3,8 @@ import {
   View,
   StyleSheet,
   TextInput,
-  Dimensions
+  Dimensions,
+  Text
 } from 'react-native'
 import { getCarparkDataByLocation } from '../services'
 import MapView from 'react-native-maps'
@@ -28,6 +29,12 @@ export default function HomeScreen() {
         value={ locationInput }
         onSubmitEditing={ () => getCarparkDataByLocation(locationInput).then((data) => setCarparkData(data)) }
       />
+      <Text>
+        Address: { carparkData && <Text> { carparkData.address } </Text> }
+      </Text>
+      <Text>
+        Lots Available: { carparkData && <Text> { carparkData.lots_available } </Text> }
+      </Text>
       <MapView
         style={ styles.mapStyle }
         initialRegion={ SINGAPORE_REGION }
@@ -67,7 +74,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5
   },
   mapStyle: {
-    height: Dimensions.get('window').height * 0.7,
+    height: Dimensions.get('window').height * 0.65,
     borderRadius: 5,
     marginTop: 'auto',
     alignSelf: 'stretch'
